@@ -1,0 +1,24 @@
+name: Test
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        deno: [v1]
+        os:
+          - label: Linux
+            key: ubuntu-latest
+          - label: Mac
+            key: macOS-latest
+          - label: Windows
+            key: windows-latest
+    name: Deno ${{ matrix.deno }} on ${{ matrix.os.label }}
+    runs-on: ${{ matrix.os.key }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: denolib/setup-deno@v2
+        with:
+          deno-version: ${{ matrix.deno }}
+      - run: deno test
