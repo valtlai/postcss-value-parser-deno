@@ -11,7 +11,7 @@ for Deno.
 ## Usage
 
 ```js
-import valueParser from 'https://deno.land/x/postcss_value_parser@4.1.0/mod.js';
+import valueParser from 'https://deno.land/x/postcss_value_parser@v4.1.0/mod.js';
 var cssBackgroundValue = 'url(foo.png) no-repeat 40px 73%';
 var parsedValue = valueParser(cssBackgroundValue);
 // parsedValue exposes an API described below,
@@ -45,7 +45,7 @@ For example, parsing the value `rgba(233, 45, 66, .5)` will return the following
 If you wanted to convert each `rgba()` value in `sourceCSS` to a hex value, you could do so like this:
 
 ```js
-import valueParser from 'https://deno.land/x/postcss_value_parser@4.1.0/mod.js';
+import valueParser from 'https://deno.land/x/postcss_value_parser@v4.1.0/mod.js';
 
 var parsed = valueParser(sourceCSS);
 
@@ -200,7 +200,7 @@ Node-specific properties:
 ## API
 
 ```js
-import valueParser from 'https://deno.land/x/postcss_value_parser@4.1.0/mod.js';
+import valueParser from 'https://deno.land/x/postcss_value_parser@v4.1.0/mod.js';
 ```
 
 ### valueParser.unit(quantity)
