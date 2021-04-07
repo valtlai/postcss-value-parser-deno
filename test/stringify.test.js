@@ -1,4 +1,4 @@
-import { assertStrictEquals } from "../deps.js";
+import { assertStrictEquals } from "./deps.js";
 import parse from "../lib/parse.js";
 import stringify from "../lib/stringify.js";
 

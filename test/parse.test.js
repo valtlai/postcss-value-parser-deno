@@ -1,4 +1,4 @@
-import { assertEquals } from "../deps.js";
+import { assertEquals } from "./deps.js";
 import parse from "../lib/parse.js";
 
 var tests = [

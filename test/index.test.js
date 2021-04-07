@@ -1,4 +1,4 @@
-import { assertEquals, assertStrictEquals } from "../deps.js";
+import { assertEquals, assertStrictEquals } from "./deps.js";
 import parser from "../mod.js";
 
 Deno.test("ValueParser: i/o", function() {

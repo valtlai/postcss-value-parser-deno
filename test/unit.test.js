@@ -1,4 +1,4 @@
-import { assertEquals } from "../deps.js";
+import { assertEquals } from "./deps.js";
 import unit from "../lib/unit.js";
 
 var tests = [
