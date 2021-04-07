@@ -262,6 +262,6 @@ Stringifies the node tree.
 
 Walks each node inside `parsed.nodes`. See the documentation for `valueParser.walk()` above.
 
-# License
+## License
 
 MIT © [Bogdan Chadkin](mailto:trysound@yandex.ru)
