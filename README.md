@@ -1,4 +1,4 @@
-# postcss-value-parser for Deno
+# PostCSS Value Parser for Deno
 
 [![Test](https://github.com/valtlai/postcss-value-parser-deno/actions/workflows/test.yml/badge.svg)](https://github.com/valtlai/postcss-value-parser-deno/actions/workflows/test.yml)
 
