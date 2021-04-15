@@ -1,29 +1,29 @@
 import { assertEquals, assertStrictEquals } from "./deps.js";
 import parser from "../mod.js";
 
-Deno.test("ValueParser: i/o", function() {
+Deno.test("ValueParser: i/o", function () {
   var tests = [
     " rgba( 34 , 45 , 54, .5 ) ",
-    "w1 w2 w6 \n f(4) ( ) () \t \"s't\" 'st\\\"2'"
+    "w1 w2 w6 \n f(4) ( ) () \t \"s't\" 'st\\\"2'",
   ];
 
-  tests.forEach(function(item) {
+  tests.forEach(function (item) {
     assertStrictEquals(
       item,
       parser(item)
-        .walk(function() {})
+        .walk(function () {})
         .toString(),
-      JSON.stringify(item)
+      JSON.stringify(item),
     );
   });
 });
 
-Deno.test("ValueParser: walk", function() {
+Deno.test("ValueParser: walk", function () {
   var result;
 
   result = [];
 
-  parser("fn( ) fn2( fn3())").walk(function(node) {
+  parser("fn( ) fn2( fn3())").walk(function (node) {
     if (node.type === "function") {
       result.push(node);
     }
@@ -38,7 +38,7 @@ Deno.test("ValueParser: walk", function() {
         value: "fn",
         before: " ",
         after: "",
-        nodes: []
+        nodes: [],
       },
       {
         type: "function",
@@ -53,9 +53,9 @@ Deno.test("ValueParser: walk", function() {
             value: "fn3",
             before: "",
             after: "",
-            nodes: []
-          }
-        ]
+            nodes: [],
+          },
+        ],
       },
       {
         type: "function",
@@ -63,15 +63,15 @@ Deno.test("ValueParser: walk", function() {
         value: "fn3",
         before: "",
         after: "",
-        nodes: []
-      }
+        nodes: [],
+      },
     ],
-    "should process all functions"
+    "should process all functions",
   );
 
   result = [];
 
-  parser("fn( ) fn2( fn3())").walk(function(node) {
+  parser("fn( ) fn2( fn3())").walk(function (node) {
     if (node.type === "function") {
       result.push(node);
       if (node.value === "fn2") {
@@ -90,7 +90,7 @@ Deno.test("ValueParser: walk", function() {
         value: "fn",
         before: " ",
         after: "",
-        nodes: []
+        nodes: [],
       },
       {
         type: "function",
@@ -105,17 +105,17 @@ Deno.test("ValueParser: walk", function() {
             value: "fn3",
             before: "",
             after: "",
-            nodes: []
-          }
-        ]
-      }
+            nodes: [],
+          },
+        ],
+      },
     ],
-    "shouldn't process functions after falsy callback"
+    "shouldn't process functions after falsy callback",
   );
 
   result = [];
 
-  parser("fn( ) fn2( fn3())").walk(function(node) {
+  parser("fn( ) fn2( fn3())").walk(function (node) {
     if (node.type === "function" && node.value === "fn2") {
       node.type = "word";
     }
@@ -131,7 +131,7 @@ Deno.test("ValueParser: walk", function() {
         value: "fn",
         before: " ",
         after: "",
-        nodes: []
+        nodes: [],
       },
       { type: "space", sourceIndex: 5, value: " " },
       {
@@ -147,17 +147,17 @@ Deno.test("ValueParser: walk", function() {
             value: "fn3",
             before: "",
             after: "",
-            nodes: []
-          }
-        ]
-      }
+            nodes: [],
+          },
+        ],
+      },
     ],
-    "shouldn't process nodes with defined non-function type"
+    "shouldn't process nodes with defined non-function type",
   );
 
   result = [];
 
-  parser("fn2( fn3())").walk(function(node) {
+  parser("fn2( fn3())").walk(function (node) {
     if (node.type === "function") {
       result.push(node);
     }
@@ -172,7 +172,7 @@ Deno.test("ValueParser: walk", function() {
         value: "fn3",
         before: "",
         after: "",
-        nodes: []
+        nodes: [],
       },
       {
         type: "function",
@@ -187,11 +187,11 @@ Deno.test("ValueParser: walk", function() {
             value: "fn3",
             before: "",
             after: "",
-            nodes: []
-          }
-        ]
-      }
+            nodes: [],
+          },
+        ],
+      },
     ],
-    "should process all functions with reverse mode"
+    "should process all functions with reverse mode",
   );
 });

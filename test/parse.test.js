@@ -5,22 +5,22 @@ var tests = [
   {
     message: "should correctly process empty input",
     fixture: "",
-    expected: []
+    expected: [],
   },
   {
     message: "should process escaped parentheses (open)",
     fixture: "\\(",
-    expected: [{ type: "word", sourceIndex: 0, value: "\\(" }]
+    expected: [{ type: "word", sourceIndex: 0, value: "\\(" }],
   },
   {
     message: "should process escaped parentheses (close)",
     fixture: "\\)",
-    expected: [{ type: "word", sourceIndex: 0, value: "\\)" }]
+    expected: [{ type: "word", sourceIndex: 0, value: "\\)" }],
   },
   {
     message: "should process escaped parentheses (both)",
     fixture: "\\(\\)",
-    expected: [{ type: "word", sourceIndex: 0, value: "\\(\\)" }]
+    expected: [{ type: "word", sourceIndex: 0, value: "\\(\\)" }],
   },
   {
     message: "should process escaped parentheses (both)",
@@ -28,8 +28,8 @@ var tests = [
     expected: [
       { type: "word", sourceIndex: 0, value: "\\(" },
       { type: "space", sourceIndex: 2, value: " " },
-      { type: "word", sourceIndex: 3, value: "\\)" }
-    ]
+      { type: "word", sourceIndex: 3, value: "\\)" },
+    ],
   },
   {
     message: "should process unopened parentheses as word",
@@ -41,11 +41,11 @@ var tests = [
         value: "",
         before: "",
         after: "",
-        nodes: []
+        nodes: [],
       },
       { type: "space", sourceIndex: 2, value: " " },
-      { type: "word", sourceIndex: 3, value: ")wo)rd)" }
-    ]
+      { type: "word", sourceIndex: 3, value: ")wo)rd)" },
+    ],
   },
   {
     message: "should add before prop",
@@ -57,9 +57,9 @@ var tests = [
         value: "",
         before: " ",
         after: "",
-        nodes: []
-      }
-    ]
+        nodes: [],
+      },
+    ],
   },
   {
     message: "should add before and after prop",
@@ -71,9 +71,9 @@ var tests = [
         value: "",
         before: " ",
         after: " ",
-        nodes: [{ type: "word", sourceIndex: 2, value: "|" }]
-      }
-    ]
+        nodes: [{ type: "word", sourceIndex: 2, value: "|" }],
+      },
+    ],
   },
   {
     message: "should add value prop",
@@ -85,9 +85,9 @@ var tests = [
         value: "name",
         before: "",
         after: "",
-        nodes: []
-      }
-    ]
+        nodes: [],
+      },
+    ],
   },
   {
     message: "should process nested functions",
@@ -113,13 +113,13 @@ var tests = [
                 value: "",
                 before: "",
                 after: "",
-                nodes: []
-              }
-            ]
-          }
-        ]
-      }
-    ]
+                nodes: [],
+              },
+            ],
+          },
+        ],
+      },
+    ],
   },
   {
     message: "should process advanced nested functions",
@@ -145,42 +145,42 @@ var tests = [
                 value: "",
                 before: " ",
                 after: "",
-                nodes: []
-              }
-            ]
-          }
-        ]
+                nodes: [],
+              },
+            ],
+          },
+        ],
       },
-      { type: "word", sourceIndex: 13, value: "word" }
-    ]
+      { type: "word", sourceIndex: 13, value: "word" },
+    ],
   },
   {
     message: "should process divider (/)",
     fixture: "/",
     expected: [
-      { type: "div", sourceIndex: 0, value: "/", before: "", after: "" }
-    ]
+      { type: "div", sourceIndex: 0, value: "/", before: "", after: "" },
+    ],
   },
   {
     message: "should process divider (:)",
     fixture: ":",
     expected: [
-      { type: "div", sourceIndex: 0, value: ":", before: "", after: "" }
-    ]
+      { type: "div", sourceIndex: 0, value: ":", before: "", after: "" },
+    ],
   },
   {
     message: "should process divider (,)",
     fixture: ",",
     expected: [
-      { type: "div", sourceIndex: 0, value: ",", before: "", after: "" }
-    ]
+      { type: "div", sourceIndex: 0, value: ",", before: "", after: "" },
+    ],
   },
   {
     message: "should process complex divider",
     fixture: " , ",
     expected: [
-      { type: "div", sourceIndex: 0, value: ",", before: " ", after: " " }
-    ]
+      { type: "div", sourceIndex: 0, value: ",", before: " ", after: " " },
+    ],
   },
   {
     message: "should process divider in function",
@@ -198,11 +198,11 @@ var tests = [
             sourceIndex: 2,
             value: ",",
             before: "",
-            after: ""
-          }
-        ]
-      }
-    ]
+            after: "",
+          },
+        ],
+      },
+    ],
   },
   {
     message: "should process two spaced divider",
@@ -213,48 +213,48 @@ var tests = [
         sourceIndex: 0,
         value: ",",
         before: " ",
-        after: " "
+        after: " ",
       },
-      { type: "div", sourceIndex: 3, value: ":", before: "", after: " " }
-    ]
+      { type: "div", sourceIndex: 3, value: ":", before: "", after: " " },
+    ],
   },
   {
     message: 'should process empty quoted strings (")',
     fixture: '""',
-    expected: [{ type: "string", sourceIndex: 0, value: "", quote: '"' }]
+    expected: [{ type: "string", sourceIndex: 0, value: "", quote: '"' }],
   },
   {
     message: "should process empty quoted strings (')",
     fixture: "''",
-    expected: [{ type: "string", sourceIndex: 0, value: "", quote: "'" }]
+    expected: [{ type: "string", sourceIndex: 0, value: "", quote: "'" }],
   },
   {
     message: "should process escaped quotes (')",
     fixture: "'word\\'word'",
     expected: [
-      { type: "string", sourceIndex: 0, value: "word\\'word", quote: "'" }
-    ]
+      { type: "string", sourceIndex: 0, value: "word\\'word", quote: "'" },
+    ],
   },
   {
     message: "should process escaped quotes (')",
     fixture: '"word\\"word"',
     expected: [
-      { type: "string", sourceIndex: 0, value: 'word\\"word', quote: '"' }
-    ]
+      { type: "string", sourceIndex: 0, value: 'word\\"word', quote: '"' },
+    ],
   },
   {
     message: "should process single quotes inside double quotes (')",
     fixture: '"word\'word"',
     expected: [
-      { type: "string", sourceIndex: 0, value: "word'word", quote: '"' }
-    ]
+      { type: "string", sourceIndex: 0, value: "word'word", quote: '"' },
+    ],
   },
   {
     message: "should process double quotes inside single quotes (')",
     fixture: "'word\"word'",
     expected: [
-      { type: "string", sourceIndex: 0, value: 'word"word', quote: "'" }
-    ]
+      { type: "string", sourceIndex: 0, value: 'word"word', quote: "'" },
+    ],
   },
   {
     message: "should process unclosed quotes",
@@ -265,9 +265,9 @@ var tests = [
         sourceIndex: 0,
         value: "word",
         quote: '"',
-        unclosed: true
-      }
-    ]
+        unclosed: true,
+      },
+    ],
   },
   {
     message: "should process unclosed quotes with ended backslash",
@@ -278,14 +278,14 @@ var tests = [
         sourceIndex: 0,
         value: "word\\",
         quote: '"',
-        unclosed: true
-      }
-    ]
+        unclosed: true,
+      },
+    ],
   },
   {
     message: "should process quoted strings",
     fixture: '"string"',
-    expected: [{ type: "string", sourceIndex: 0, value: "string", quote: '"' }]
+    expected: [{ type: "string", sourceIndex: 0, value: "string", quote: '"' }],
   },
   {
     message: "should process quoted strings and words",
@@ -293,8 +293,8 @@ var tests = [
     expected: [
       { type: "word", sourceIndex: 0, value: "word1" },
       { type: "string", sourceIndex: 5, value: "string", quote: '"' },
-      { type: "word", sourceIndex: 13, value: "word2" }
-    ]
+      { type: "word", sourceIndex: 13, value: "word2" },
+    ],
   },
   {
     message: "should process quoted strings and spaces",
@@ -302,8 +302,8 @@ var tests = [
     expected: [
       { type: "space", sourceIndex: 0, value: " " },
       { type: "string", sourceIndex: 1, value: "string", quote: '"' },
-      { type: "space", sourceIndex: 9, value: " " }
-    ]
+      { type: "space", sourceIndex: 9, value: " " },
+    ],
   },
   {
     message: "should process escaped symbols as words",
@@ -311,8 +311,8 @@ var tests = [
     expected: [
       { type: "space", sourceIndex: 0, value: " " },
       { type: "word", sourceIndex: 1, value: "\\\"word\\'\\ \\\t" },
-      { type: "space", sourceIndex: 13, value: " " }
-    ]
+      { type: "space", sourceIndex: 13, value: " " },
+    ],
   },
   {
     message: "should correctly proceess font value",
@@ -329,7 +329,7 @@ var tests = [
         sourceIndex: 16,
         value: "/",
         before: " \t ",
-        after: ""
+        after: "",
       },
       { type: "word", sourceIndex: 20, value: "3" },
       { type: "space", sourceIndex: 21, value: " " },
@@ -339,7 +339,7 @@ var tests = [
         sourceIndex: 33,
         value: ",",
         before: "",
-        after: " "
+        after: " ",
       },
       { type: "word", sourceIndex: 35, value: "Arial" },
       {
@@ -347,23 +347,23 @@ var tests = [
         sourceIndex: 40,
         value: ",",
         before: "",
-        after: " "
+        after: " ",
       },
       {
         type: "string",
         sourceIndex: 42,
         value: "Helvetica Neue",
-        quote: '"'
+        quote: '"',
       },
       {
         type: "div",
         sourceIndex: 58,
         value: ",",
         before: "",
-        after: " "
+        after: " ",
       },
-      { type: "word", sourceIndex: 60, value: "sans-serif" }
-    ]
+      { type: "word", sourceIndex: 60, value: "sans-serif" },
+    ],
   },
   {
     message: "should correctly proceess color value",
@@ -382,7 +382,7 @@ var tests = [
             sourceIndex: 8,
             value: ",",
             before: "",
-            after: " "
+            after: " ",
           },
           { type: "word", sourceIndex: 10, value: "439" },
           {
@@ -390,12 +390,12 @@ var tests = [
             sourceIndex: 13,
             value: ",",
             before: " ",
-            after: " "
+            after: " ",
           },
-          { type: "word", sourceIndex: 16, value: "29" }
-        ]
-      }
-    ]
+          { type: "word", sourceIndex: 16, value: "29" },
+        ],
+      },
+    ],
   },
   {
     message: "should correctly process url function",
@@ -407,9 +407,9 @@ var tests = [
         value: "url",
         before: " ",
         after: " ",
-        nodes: [{ type: "word", sourceIndex: 5, value: "/gfx/img/bg.jpg" }]
-      }
-    ]
+        nodes: [{ type: "word", sourceIndex: 5, value: "/gfx/img/bg.jpg" }],
+      },
+    ],
   },
   {
     message: "should add unclosed: true prop for url function",
@@ -424,10 +424,10 @@ var tests = [
         unclosed: true,
         nodes: [
           { type: "word", sourceIndex: 5, value: "/gfx/img/bg.jpg" },
-          { type: "space", sourceIndex: 20, value: " " }
-        ]
-      }
-    ]
+          { type: "space", sourceIndex: 20, value: " " },
+        ],
+      },
+    ],
   },
   {
     message: "should correctly process url function with quoted first argument",
@@ -444,13 +444,13 @@ var tests = [
             type: "string",
             sourceIndex: 5,
             quote: '"',
-            value: "/gfx/img/bg.jpg"
+            value: "/gfx/img/bg.jpg",
           },
           { type: "space", sourceIndex: 22, value: " " },
-          { type: "word", sourceIndex: 23, value: "hello" }
-        ]
-      }
-    ]
+          { type: "word", sourceIndex: 23, value: "hello" },
+        ],
+      },
+    ],
   },
   {
     message: "should correctly parse spaces",
@@ -466,31 +466,31 @@ var tests = [
           {
             type: "word",
             sourceIndex: 5,
-            value: "1"
+            value: "1",
           },
           {
             type: "space",
             sourceIndex: 6,
-            value: " "
+            value: " ",
           },
           {
             type: "word",
             sourceIndex: 7,
-            value: "+"
+            value: "+",
           },
           {
             type: "space",
             sourceIndex: 8,
-            value: " "
+            value: " ",
           },
           {
             type: "word",
             sourceIndex: 9,
-            value: "2"
-          }
-        ]
-      }
-    ]
+            value: "2",
+          },
+        ],
+      },
+    ],
   },
   {
     message: "should correctly parse subtraction with spaces",
@@ -506,31 +506,31 @@ var tests = [
           {
             type: "word",
             sourceIndex: 5,
-            value: "1"
+            value: "1",
           },
           {
             type: "space",
             sourceIndex: 6,
-            value: " "
+            value: " ",
           },
           {
             type: "word",
             sourceIndex: 7,
-            value: "-"
+            value: "-",
           },
           {
             type: "space",
             sourceIndex: 8,
-            value: " "
+            value: " ",
           },
           {
             type: "word",
             sourceIndex: 9,
-            value: "2"
-          }
-        ]
-      }
-    ]
+            value: "2",
+          },
+        ],
+      },
+    ],
   },
   {
     message: "should correctly parse multiplication with spaces",
@@ -546,31 +546,31 @@ var tests = [
           {
             type: "word",
             sourceIndex: 5,
-            value: "1"
+            value: "1",
           },
           {
             type: "space",
             sourceIndex: 6,
-            value: " "
+            value: " ",
           },
           {
             type: "word",
             sourceIndex: 7,
-            value: "*"
+            value: "*",
           },
           {
             type: "space",
             sourceIndex: 8,
-            value: " "
+            value: " ",
           },
           {
             type: "word",
             sourceIndex: 9,
-            value: "2"
-          }
-        ]
-      }
-    ]
+            value: "2",
+          },
+        ],
+      },
+    ],
   },
   {
     message: "should correctly parse division with spaces",
@@ -586,31 +586,31 @@ var tests = [
           {
             type: "word",
             sourceIndex: 5,
-            value: "1"
+            value: "1",
           },
           {
             type: "space",
             sourceIndex: 6,
-            value: " "
+            value: " ",
           },
           {
             type: "word",
             sourceIndex: 7,
-            value: "/"
+            value: "/",
           },
           {
             type: "space",
             sourceIndex: 8,
-            value: " "
+            value: " ",
           },
           {
             type: "word",
             sourceIndex: 9,
-            value: "2"
-          }
-        ]
-      }
-    ]
+            value: "2",
+          },
+        ],
+      },
+    ],
   },
   {
     message: "should correctly parse multiplication without spaces",
@@ -626,21 +626,21 @@ var tests = [
           {
             type: "word",
             sourceIndex: 5,
-            value: "1"
+            value: "1",
           },
           {
             type: "word",
             sourceIndex: 6,
-            value: "*"
+            value: "*",
           },
           {
             type: "word",
             sourceIndex: 7,
-            value: "2"
-          }
-        ]
-      }
-    ]
+            value: "2",
+          },
+        ],
+      },
+    ],
   },
   {
     message: "should correctly parse division without spaces",
@@ -656,21 +656,21 @@ var tests = [
           {
             type: "word",
             sourceIndex: 5,
-            value: "1"
+            value: "1",
           },
           {
             type: "word",
             sourceIndex: 6,
-            value: "/"
+            value: "/",
           },
           {
             type: "word",
             sourceIndex: 7,
-            value: "2"
-          }
-        ]
-      }
-    ]
+            value: "2",
+          },
+        ],
+      },
+    ],
   },
   {
     message: "should correctly process nested calc functions",
@@ -700,47 +700,47 @@ var tests = [
                   {
                     type: "word",
                     sourceIndex: 7,
-                    value: "768px"
+                    value: "768px",
                   },
                   {
                     type: "space",
                     sourceIndex: 12,
-                    value: " "
+                    value: " ",
                   },
                   {
                     type: "word",
                     sourceIndex: 13,
-                    value: "-"
+                    value: "-",
                   },
                   {
                     type: "space",
                     sourceIndex: 14,
-                    value: " "
+                    value: " ",
                   },
                   {
                     type: "word",
                     sourceIndex: 15,
-                    value: "100vw"
-                  }
-                ]
+                    value: "100vw",
+                  },
+                ],
               },
               {
                 type: "div",
                 sourceIndex: 21,
                 value: "/",
                 before: " ",
-                after: " "
+                after: " ",
               },
-              { type: "word", sourceIndex: 24, value: "2" }
-            ]
+              { type: "word", sourceIndex: 24, value: "2" },
+            ],
           },
           { type: "space", sourceIndex: 26, value: " " },
           { type: "word", sourceIndex: 27, value: "-" },
           { type: "space", sourceIndex: 28, value: " " },
-          { type: "word", sourceIndex: 29, value: "15px" }
-        ]
-      }
-    ]
+          { type: "word", sourceIndex: 29, value: "15px" },
+        ],
+      },
+    ],
   },
   {
     message: "should process colons with params",
@@ -759,10 +759,10 @@ var tests = [
             sourceIndex: 10,
             value: ":",
             before: "",
-            after: " "
+            after: " ",
           },
-          { type: "word", sourceIndex: 12, value: "700px" }
-        ]
+          { type: "word", sourceIndex: 12, value: "700px" },
+        ],
       },
       { type: "space", sourceIndex: 18, value: " " },
       { type: "word", sourceIndex: 19, value: "and" },
@@ -780,12 +780,12 @@ var tests = [
             sourceIndex: 35,
             value: ":",
             before: "",
-            after: " "
+            after: " ",
           },
-          { type: "word", sourceIndex: 37, value: "\\$landscape" }
-        ]
-      }
-    ]
+          { type: "word", sourceIndex: 37, value: "\\$landscape" },
+        ],
+      },
+    ],
   },
   {
     message: "should escape parentheses with backslash",
@@ -801,11 +801,11 @@ var tests = [
           {
             type: "word",
             sourceIndex: 5,
-            value: "http://website.com/assets\\)_test"
-          }
-        ]
-      }
-    ]
+            value: "http://website.com/assets\\)_test",
+          },
+        ],
+      },
+    ],
   },
   {
     message: "should parse parentheses correctly",
@@ -824,14 +824,14 @@ var tests = [
             value: "fn2",
             before: "",
             after: "",
-            nodes: [{ type: "word", sourceIndex: 8, value: "255" }]
+            nodes: [{ type: "word", sourceIndex: 8, value: "255" }],
           },
           {
             type: "div",
             sourceIndex: 12,
             value: ",",
             before: "",
-            after: " "
+            after: " ",
           },
           {
             type: "function",
@@ -839,16 +839,16 @@ var tests = [
             value: "fn3",
             before: "",
             after: "",
-            nodes: [{ type: "word", sourceIndex: 18, value: ".2" }]
-          }
-        ]
+            nodes: [{ type: "word", sourceIndex: 18, value: ".2" }],
+          },
+        ],
       },
       {
         type: "div",
         sourceIndex: 22,
         value: ",",
         before: "",
-        after: " "
+        after: " ",
       },
       {
         type: "function",
@@ -870,22 +870,22 @@ var tests = [
                 sourceIndex: 35,
                 value: ",",
                 before: "",
-                after: ""
+                after: "",
               },
-              { type: "word", sourceIndex: 36, value: ".2" }
-            ]
+              { type: "word", sourceIndex: 36, value: ".2" },
+            ],
           },
           {
             type: "div",
             sourceIndex: 39,
             value: ",",
             before: "",
-            after: " "
+            after: " ",
           },
-          { type: "word", sourceIndex: 41, value: "fn6" }
-        ]
-      }
-    ]
+          { type: "word", sourceIndex: 41, value: "fn6" },
+        ],
+      },
+    ],
   },
   {
     message: "shouldn't throw an error on unclosed function",
@@ -904,10 +904,10 @@ var tests = [
           { type: "word", sourceIndex: 3, value: "32" },
           { type: "space", sourceIndex: 5, value: " " },
           { type: "word", sourceIndex: 6, value: "word" },
-          { type: "space", sourceIndex: 10, value: " " }
-        ]
-      }
-    ]
+          { type: "space", sourceIndex: 10, value: " " },
+        ],
+      },
+    ],
   },
   {
     message: "should add unclosed: true prop for every unclosed function",
@@ -935,14 +935,14 @@ var tests = [
                 value: "",
                 before: " ",
                 after: "",
-                nodes: []
+                nodes: [],
               },
-              { type: "space", sourceIndex: 7, value: " " }
-            ]
-          }
-        ]
-      }
-    ]
+              { type: "space", sourceIndex: 7, value: " " },
+            ],
+          },
+        ],
+      },
+    ],
   },
   {
     message: "shouldn't throw an error on unopened function",
@@ -955,13 +955,13 @@ var tests = [
       { type: "word", sourceIndex: 5, value: "word" },
       { type: "space", sourceIndex: 9, value: " " },
       { type: "word", sourceIndex: 10, value: ")" },
-      { type: "space", sourceIndex: 11, value: " " }
-    ]
+      { type: "space", sourceIndex: 11, value: " " },
+    ],
   },
   {
     message: "should process escaped spaces as word in fonts",
     fixture: "Bond\\ 007",
-    expected: [{ type: "word", sourceIndex: 0, value: "Bond\\ 007" }]
+    expected: [{ type: "word", sourceIndex: 0, value: "Bond\\ 007" }],
   },
   {
     message: "should parse double url and comma",
@@ -973,14 +973,14 @@ var tests = [
         value: "url",
         before: "",
         after: "",
-        nodes: [{ type: "word", sourceIndex: 4, value: "foo/bar.jpg" }]
+        nodes: [{ type: "word", sourceIndex: 4, value: "foo/bar.jpg" }],
       },
       {
         type: "div",
         sourceIndex: 16,
         value: ",",
         before: "",
-        after: " "
+        after: " ",
       },
       {
         type: "function",
@@ -992,11 +992,11 @@ var tests = [
           {
             type: "word",
             sourceIndex: 22,
-            value: "http://website.com/img.jpg"
-          }
-        ]
-      }
-    ]
+            value: "http://website.com/img.jpg",
+          },
+        ],
+      },
+    ],
   },
   {
     message: "should parse empty url",
@@ -1008,9 +1008,9 @@ var tests = [
         value: "url",
         before: "",
         after: "",
-        nodes: []
-      }
-    ]
+        nodes: [],
+      },
+    ],
   },
   {
     message: "should parse empty url with space",
@@ -1022,9 +1022,9 @@ var tests = [
         value: "url",
         before: " ",
         after: "",
-        nodes: []
-      }
-    ]
+        nodes: [],
+      },
+    ],
   },
   {
     message: "should parse empty url with multiple spaces",
@@ -1036,9 +1036,9 @@ var tests = [
         value: "url",
         before: "   ",
         after: "",
-        nodes: []
-      }
-    ]
+        nodes: [],
+      },
+    ],
   },
   {
     message: "should parse empty url with newline (LF)",
@@ -1050,9 +1050,9 @@ var tests = [
         value: "url",
         before: "\n",
         after: "",
-        nodes: []
-      }
-    ]
+        nodes: [],
+      },
+    ],
   },
   {
     message: "should parse empty url with newline (CRLF)",
@@ -1064,9 +1064,9 @@ var tests = [
         value: "url",
         before: "\r\n",
         after: "",
-        nodes: []
-      }
-    ]
+        nodes: [],
+      },
+    ],
   },
   {
     message: "should parse empty url with multiple newlines (LF)",
@@ -1078,9 +1078,9 @@ var tests = [
         value: "url",
         before: "\n\n\n",
         after: "",
-        nodes: []
-      }
-    ]
+        nodes: [],
+      },
+    ],
   },
   {
     message: "should parse empty url with multiple newlines (CRLF)",
@@ -1092,9 +1092,9 @@ var tests = [
         value: "url",
         before: "\r\n\r\n\r\n",
         after: "",
-        nodes: []
-      }
-    ]
+        nodes: [],
+      },
+    ],
   },
   {
     message: "should parse empty url with whitespace characters",
@@ -1106,9 +1106,9 @@ var tests = [
         value: "url",
         before: "  \n \t  \r\n  ",
         after: "",
-        nodes: []
-      }
-    ]
+        nodes: [],
+      },
+    ],
   },
   {
     message: "should parse comments",
@@ -1122,8 +1122,8 @@ var tests = [
       { type: "space", sourceIndex: 26, value: " " },
       { type: "word", sourceIndex: 27, value: "1px" },
       { type: "space", sourceIndex: 30, value: " " },
-      { type: "comment", sourceIndex: 31, value: "after" }
-    ]
+      { type: "comment", sourceIndex: 31, value: "after" },
+    ],
   },
   {
     message: "should parse comments inside functions",
@@ -1142,7 +1142,7 @@ var tests = [
             sourceIndex: 7,
             value: ",",
             before: "",
-            after: " "
+            after: " ",
           },
           { type: "word", sourceIndex: 9, value: "55" },
           {
@@ -1150,7 +1150,7 @@ var tests = [
             sourceIndex: 11,
             value: "/",
             before: "",
-            after: ""
+            after: "",
           },
           { type: "word", sourceIndex: 12, value: "55" },
           {
@@ -1158,13 +1158,13 @@ var tests = [
             sourceIndex: 14,
             value: ",",
             before: "",
-            after: " "
+            after: " ",
           },
           { type: "word", sourceIndex: 16, value: "0" },
-          { type: "comment", sourceIndex: 17, value: ",.5" }
-        ]
-      }
-    ]
+          { type: "comment", sourceIndex: 17, value: ",.5" },
+        ],
+      },
+    ],
   },
   {
     message:
@@ -1182,13 +1182,13 @@ var tests = [
             type: "string",
             sourceIndex: 5,
             value: "/demo/bg.png",
-            quote: '"'
+            quote: '"',
           },
           { type: "space", sourceIndex: 19, value: " " },
-          { type: "comment", sourceIndex: 20, value: "comment" }
-        ]
-      }
-    ]
+          { type: "comment", sourceIndex: 20, value: "comment" },
+        ],
+      },
+    ],
   },
   {
     message:
@@ -1205,11 +1205,11 @@ var tests = [
           {
             type: "word",
             sourceIndex: 5,
-            value: "/*comment*/ /demo/bg.png"
-          }
-        ]
-      }
-    ]
+            value: "/*comment*/ /demo/bg.png",
+          },
+        ],
+      },
+    ],
   },
   {
     message:
@@ -1226,11 +1226,11 @@ var tests = [
           {
             type: "word",
             sourceIndex: 5,
-            value: "/demo/bg.png /*comment*/"
-          }
-        ]
-      }
-    ]
+            value: "/demo/bg.png /*comment*/",
+          },
+        ],
+      },
+    ],
   },
   {
     message: "should parse unclosed comments",
@@ -1244,9 +1244,9 @@ var tests = [
         type: "comment",
         sourceIndex: 16,
         value: " unclosed ",
-        unclosed: true
-      }
-    ]
+        unclosed: true,
+      },
+    ],
   },
   {
     message: "should respect escape character",
@@ -1256,38 +1256,38 @@ var tests = [
       { type: "space", sourceIndex: 6, value: " " },
       { type: "word", sourceIndex: 7, value: "\\35" },
       { type: "space", sourceIndex: 10, value: " " },
-      { type: "word", sourceIndex: 11, value: "-0" }
-    ]
+      { type: "word", sourceIndex: 11, value: "-0" },
+    ],
   },
   {
     message: "should parse unicode-range (single codepoint)",
     fixture: "U+26",
-    expected: [{ type: "unicode-range", sourceIndex: 0, value: "U+26" }]
+    expected: [{ type: "unicode-range", sourceIndex: 0, value: "U+26" }],
   },
   {
     message: "should parse unicode-range (single codepoint) 2",
     fixture: "U+0-7F",
-    expected: [{ type: "unicode-range", sourceIndex: 0, value: "U+0-7F" }]
+    expected: [{ type: "unicode-range", sourceIndex: 0, value: "U+0-7F" }],
   },
   {
     message: "should parse unicode-range (single codepoint) 3",
     fixture: "U+0-7f",
-    expected: [{ type: "unicode-range", sourceIndex: 0, value: "U+0-7f" }]
+    expected: [{ type: "unicode-range", sourceIndex: 0, value: "U+0-7f" }],
   },
   {
     message: "should parse unicode-range (single codepoint) (lowercase)",
     fixture: "u+26",
-    expected: [{ type: "unicode-range", sourceIndex: 0, value: "u+26" }]
+    expected: [{ type: "unicode-range", sourceIndex: 0, value: "u+26" }],
   },
   {
     message: "should parse unicode-range (codepoint range)",
     fixture: "U+0025-00FF",
-    expected: [{ type: "unicode-range", sourceIndex: 0, value: "U+0025-00FF" }]
+    expected: [{ type: "unicode-range", sourceIndex: 0, value: "U+0025-00FF" }],
   },
   {
     message: "should parse unicode-range (wildcard range)",
     fixture: "U+4??",
-    expected: [{ type: "unicode-range", sourceIndex: 0, value: "U+4??" }]
+    expected: [{ type: "unicode-range", sourceIndex: 0, value: "U+4??" }],
   },
   {
     message: "should parse unicode-range (multiple values)",
@@ -1295,28 +1295,28 @@ var tests = [
     expected: [
       { type: "unicode-range", sourceIndex: 0, value: "U+0025-00FF" },
       { type: "div", sourceIndex: 11, value: ",", before: "", after: " " },
-      { type: "unicode-range", sourceIndex: 13, value: "U+4??" }
-    ]
+      { type: "unicode-range", sourceIndex: 13, value: "U+4??" },
+    ],
   },
   {
     message: "should parse invalid unicode-range as word",
     fixture: "U+4??Z",
-    expected: [{ type: "word", sourceIndex: 0, value: "U+4??Z" }]
+    expected: [{ type: "word", sourceIndex: 0, value: "U+4??Z" }],
   },
   {
     message: "should parse invalid unicode-range as word 2",
     fixture: "U+",
-    expected: [{ type: "word", sourceIndex: 0, value: "U+" }]
+    expected: [{ type: "word", sourceIndex: 0, value: "U+" }],
   },
   {
     message: "should parse invalid unicode-range as word 2",
     fixture: "U+Z",
-    expected: [{ type: "word", sourceIndex: 0, value: "U+Z" }]
-  }
+    expected: [{ type: "word", sourceIndex: 0, value: "U+Z" }],
+  },
 ];
 
-Deno.test("Parse", function() {
-  tests.forEach(function(opts) {
+Deno.test("Parse", function () {
+  tests.forEach(function (opts) {
     assertEquals(parse(opts.fixture), opts.expected, opts.message);
   });
 });
