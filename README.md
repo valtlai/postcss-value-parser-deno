@@ -24,8 +24,7 @@ following:
 
 ```js
 {
-  nodes:
-  [
+  nodes: [
     {
       type: "function",
       value: "rgba",
@@ -41,8 +40,8 @@ following:
         { type: "word", value: ".5" },
       ],
     },
-  ];
-}
+  ],
+};
 ```
 
 If you wanted to convert each `rgba()` value in `sourceCSS` to a hex value, you
@@ -185,17 +184,31 @@ the first character in the argument is a quotation mark.
 `url( /gfx/img/bg.jpg )` parses to:
 
 ```js
-{ type: 'function', sourceIndex: 0, value: 'url', before: ' ', after: ' ', nodes: [
-    { type: 'word', sourceIndex: 5, value: '/gfx/img/bg.jpg' }
-] }
+{
+  type: "function",
+  sourceIndex: 0,
+  value: "url",
+  before: " ",
+  after: " ",
+  nodes: [
+    { type: "word", sourceIndex: 5, value: "/gfx/img/bg.jpg" },
+  ],
+};
 ```
 
 `url( "/gfx/img/bg.jpg" )`, on the other hand, parses to:
 
 ```js
-{ type: 'function', sourceIndex: 0, value: 'url', before: ' ', after: ' ', nodes: [
-     type: 'string', sourceIndex: 5, quote: '"', value: '/gfx/img/bg.jpg' },
-] }
+{
+  type: "function",
+  sourceIndex: 0,
+  value: "url",
+  before: " ",
+  after: " ",
+  nodes: [
+    { type: "string", sourceIndex: 5, quote: '"', value: "/gfx/img/bg.jpg" },
+  ],
+};
 ```
 
 ### unicode-range
@@ -222,9 +235,9 @@ like the following:
 ```js
 // Given 2rem
 {
-  number: '2',
-  unit: 'rem'
-}
+  number: "2",
+  unit: "rem",
+};
 ```
 
 If the `quantity` argument cannot be parsed as a number, returns `false`.
