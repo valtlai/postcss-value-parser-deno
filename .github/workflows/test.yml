@@ -21,4 +21,4 @@ jobs:
       - uses: denoland/setup-deno@v1
         with:
           deno-version: ${{ matrix.deno }}
-      - run: deno test
+      - run: deno test --unstable
