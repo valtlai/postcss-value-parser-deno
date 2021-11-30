@@ -1,4 +1,4 @@
-import { assertStrictEquals } from "./deps.js";
+import { assertEquals } from "./deps.js";
 import parse from "../lib/parse.js";
 import stringify from "../lib/stringify.js";
 
@@ -90,7 +90,7 @@ const tests = [
 
 Deno.test("Stringify", function () {
   tests.forEach(function (opts) {
-    assertStrictEquals(
+    assertEquals(
       stringify(parse(opts.fixture)),
       opts.fixture,
       opts.message,
@@ -99,7 +99,7 @@ Deno.test("Stringify", function () {
 
   const tokens = parse(" rgba(12,  54, 65 ) ");
 
-  assertStrictEquals(
+  assertEquals(
     stringify(tokens, function (node) {
       if (node.type === "function") {
         return (
@@ -115,7 +115,7 @@ Deno.test("Stringify", function () {
     " rgba[12,54,65] ",
   );
 
-  assertStrictEquals(
+  assertEquals(
     stringify(tokens[1], function (node) {
       if (node.type === "function") {
         return (
@@ -132,13 +132,13 @@ Deno.test("Stringify", function () {
   );
 
   tokens[1].type = "word";
-  assertStrictEquals(
+  assertEquals(
     stringify(tokens),
     " rgba ",
     "Shouldn't process nodes of work type",
   );
 
-  assertStrictEquals(
+  assertEquals(
     stringify(parse("calc(1px + var(--bar))"), function (node) {
       if (node.type === "function" && node.value === "var") {
         return "10px";

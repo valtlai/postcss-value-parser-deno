@@ -5,14 +5,14 @@
 Transforms CSS declaration values and at-rule parameters into a tree of nodes,
 and provides a simple traversal API.
 
-🦕 This is a fork of
+🦕 This is a port of
 [postcss-value-parser](https://github.com/TrySound/postcss-value-parser) for
 Deno.
 
 ## Usage
 
 ```js
-import valueParser from "https://deno.land/x/postcss_value_parser@v4.1.0/mod.js";
+import valueParser from "https://deno.land/x/postcss_value_parser@4.2.0/mod.js";
 const cssBackgroundValue = "url(foo.png) no-repeat 40px 73%";
 const parsedValue = valueParser(cssBackgroundValue);
 // parsedValue exposes an API described below,
@@ -48,7 +48,7 @@ If you wanted to convert each `rgba()` value in `sourceCSS` to a hex value, you
 could do so like this:
 
 ```js
-import valueParser from "https://deno.land/x/postcss_value_parser@v4.1.0/mod.js";
+import valueParser from "https://deno.land/x/postcss_value_parser@4.2.0/mod.js";
 
 const parsed = valueParser(sourceCSS);
 
@@ -224,7 +224,7 @@ Node-specific properties:
 ## API
 
 ```js
-import valueParser from "https://deno.land/x/postcss_value_parser@v4.1.0/mod.js";
+import valueParser from "https://deno.land/x/postcss_value_parser@4.2.0/mod.js";
 ```
 
 ### valueParser.unit(quantity)
