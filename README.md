@@ -13,8 +13,8 @@ Deno.
 
 ```js
 import valueParser from "https://deno.land/x/postcss_value_parser@v4.1.0/mod.js";
-var cssBackgroundValue = "url(foo.png) no-repeat 40px 73%";
-var parsedValue = valueParser(cssBackgroundValue);
+const cssBackgroundValue = "url(foo.png) no-repeat 40px 73%";
+const parsedValue = valueParser(cssBackgroundValue);
 // parsedValue exposes an API described below,
 // e.g. parsedValue.walk(..), parsedValue.toString(), etc.
 ```
@@ -51,7 +51,7 @@ could do so like this:
 ```js
 import valueParser from "https://deno.land/x/postcss_value_parser@v4.1.0/mod.js";
 
-var parsed = valueParser(sourceCSS);
+const parsed = valueParser(sourceCSS);
 
 // walk() will visit all the of the nodes in the tree,
 // invoking the callback for each.
@@ -62,7 +62,7 @@ parsed.walk(function (node) {
 
   // We can make an array of the rgba() arguments to feed to a
   // convertToHex() function
-  var color = node.nodes.filter(function (node) {
+  const color = node.nodes.filter(function (node) {
     return node.type === "word";
   }).map(function (node) {
     return Number(node.value);
@@ -262,7 +262,7 @@ The `callback` is invoked with three arguments: `callback(node, index, nodes)`.
 
 Returns the `valueParser` instance.
 
-### var parsed = valueParser(value)
+### const parsed = valueParser(value)
 
 Returns the parsed node tree.
 

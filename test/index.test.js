@@ -3,7 +3,7 @@ import parser from "../mod.js";
 
 Deno.test("ValueParser", async function (t) {
   await t.step("i/o", function () {
-    var tests = [
+    const tests = [
       " rgba( 34 , 45 , 54, .5 ) ",
       "w1 w2 w6 \n f(4) ( ) () \t \"s't\" 'st\\\"2'",
     ];
@@ -20,7 +20,7 @@ Deno.test("ValueParser", async function (t) {
   });
 
   await t.step("walk", function () {
-    var result;
+    let result;
 
     result = [];
 

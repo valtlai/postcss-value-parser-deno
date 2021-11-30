@@ -1,7 +1,7 @@
 import { assertEquals } from "./deps.js";
 import unit from "../lib/unit.js";
 
-var tests = [
+const tests = [
   {
     fixture: ".23rem",
     expected: { number: ".23", unit: "rem" },

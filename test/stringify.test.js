@@ -2,7 +2,7 @@ import { assertStrictEquals } from "./deps.js";
 import parse from "../lib/parse.js";
 import stringify from "../lib/stringify.js";
 
-var tests = [
+const tests = [
   {
     message: "Should correctly add quotes",
     fixture:
@@ -97,7 +97,7 @@ Deno.test("Stringify", function () {
     );
   });
 
-  var tokens = parse(" rgba(12,  54, 65 ) ");
+  const tokens = parse(" rgba(12,  54, 65 ) ");
 
   assertStrictEquals(
     stringify(tokens, function (node) {

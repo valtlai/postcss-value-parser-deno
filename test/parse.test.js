@@ -1,7 +1,7 @@
 import { assertEquals } from "./deps.js";
 import parse from "../lib/parse.js";
 
-var tests = [
+const tests = [
   {
     message: "should correctly process empty input",
     fixture: "",
