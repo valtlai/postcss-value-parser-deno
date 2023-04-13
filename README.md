@@ -9,6 +9,14 @@ and provides a simple traversal API.
 [postcss-value-parser](https://github.com/TrySound/postcss-value-parser) for
 Deno.
 
+## Deprecated
+
+❌ This module is deprecated. Please use the following instead:
+
+```js
+import valueParser from "npm:postcss-value-parser@VERSION_NUMBER";
+```
+
 ## Usage
 
 ```js
